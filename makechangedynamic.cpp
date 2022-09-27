@@ -51,16 +51,17 @@ class changeMaking
         cout<<endl;
     }
     vector<int> v;
-    while(n>0 && sum>0)
+    while(i>0 && j>0)
         {  
-         if(dp[n][j]==dp[n-1][sum])
+         if(dp[n][j]!=dp[i-1][j])
         	{
-        		n--;
+        		j-=coin[i];
+		        v.push_back(coin[i]);
 			}
 			else
 			{
-				sum-=coin[n];
-				v.push_back(coin[n]);
+				i--;
+				
 			}
         } 
      for(i=0;i<=v.size();i++)
