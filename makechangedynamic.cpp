@@ -43,6 +43,7 @@ class changeMaking
         }
     
     }
+    cout<<"Table"<<endl;
     for(i=1;i<=n;i++)
     {
         cout<<coin[i-1]<<"\t";
@@ -50,22 +51,22 @@ class changeMaking
         cout<<dp[i][j]<<" ";
         cout<<endl;
     }
+    cout<<"The required coins for making "<<sum<<" amount is"<<endl; 
     vector<int> v;
-    while(i>0 && j>0)
+    while(n>0 && sum>0)
         {  
-         if(dp[n][j]!=dp[i-1][j])
+         if(dp[n][sum]!=dp[n-1][sum])
         	{
-        		j-=coin[i];
-		        v.push_back(coin[i]);
+                sum-=coin[n-1];
+                v.push_back(coin[n-1]);
 			}
 			else
 			{
-				i--;
-				
+                n--;
 			}
         } 
-     for(i=0;i<=v.size();i++)
-    cout<<v[i]<<" ";
+     for(i=0;i<v.size();i++)
+    cout<<v[i]<<",";
     }
     
 };
